@@ -1,4 +1,4 @@
-NaverstoreExcelEase
+About the Project
 ===================
 
 Introduction
