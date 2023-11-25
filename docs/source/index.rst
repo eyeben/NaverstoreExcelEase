@@ -10,8 +10,9 @@ Welcome to NaverstoreExcelEase's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   HowToBegin
-   Download
+   AboutTheProject
+   Installation
+   HowtoUse
 
 
 Indices and tables
