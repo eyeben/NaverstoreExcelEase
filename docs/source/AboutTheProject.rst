@@ -1,5 +1,5 @@
 About the Project
-===================
+=================
 
 Introduction
 ------------
@@ -23,10 +23,9 @@ Benefits
 Getting Started
 ---------------
 
-For a guide on how to get started with NaverstoreExcelEase, please refer to our [Getting Started guide](HowtoUse.rst).
+For a guide on how to get started with NaverstoreExcelEase, please refer to our `Getting Started guide <HowtoUse.rst>`_.
 
 Download
 --------
 
-To download the latest version of NaverstoreExcelEase, visit our [Download page](Installation.rst).
-
+To download the latest version of NaverstoreExcelEase, visit our `Download page <Installation.rst>`_.

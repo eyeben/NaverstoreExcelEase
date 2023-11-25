@@ -15,7 +15,7 @@ For Downloaders
 
 For Web Users
 -------------
-1. Visit our homepage: [www.naver.com](http://www.naver.com)
+1. Visit our homepage: `here <http://www.naver.com>`_
 
 2. Drag your Excel files into the appropriate slots. 
    Each slot should contain an Excel file from a courier and Naver.
