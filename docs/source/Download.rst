@@ -1,7 +1,7 @@
 Download
 ==========
 
-
 Download for...
-- `Windows <www.naver.com>`_
-- `Macs <www.google.com>`_
+
+- `Windows <https://www.naver.com>`_
+- `Macs <https://www.google.com>`_
