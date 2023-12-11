@@ -20,7 +20,8 @@ function readFile(file, callback) {
     const reader = new FileReader();
     reader.onload = function(event) {
         const data = event.target.result;
-
+        const workbook = XLSX.read(data, { type: 'binary' });
+        callback(workbook);
     };
     reader.readAsBinaryString(file);
 }
@@ -34,12 +35,8 @@ function processFiles() {
     const sheet1 = excel1.Sheets[excel1.SheetNames[0]];
     const sheet2 = excel2.Sheets[excel2.SheetNames[0]];
 
-    // 첫 행을 제외하고 데이터를 읽음
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "", range: 1 });
     const data2 = XLSX.utils.sheet_to_json(sheet2, { defval: "", range: 1 });
-
-    // 데이터 처리 로직...
-    // 예: 전화번호를 기반으로 매칭하고 송장번호 업데이트
 
     data1.forEach(row1 => {
         const formattedPhone = String(row1['수취인연락처1']).replace(/-/g, '').trim();
@@ -59,7 +56,6 @@ function processFiles() {
 
     XLSX.writeFile(excel1, 'updated_excel1.xlsx');
 }
-
 
 function updateProcessButtonVisibility() {
     if (excel1 && excel2) {
