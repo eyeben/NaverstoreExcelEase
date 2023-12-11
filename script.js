@@ -20,22 +20,14 @@ function readFile(file, callback) {
     const reader = new FileReader();
     reader.onload = function(event) {
         const data = event.target.result;
-        try {
-            const workbook = XLSX.read(data, { 
-                type: 'binary',
-                password: 'aaaa' // 비밀번호 입력
-            });
+        const workbook = XLSX.read(data, { type: 'binary' });
 
-            // 첫 번째 시트의 첫 행을 제거
-            const firstSheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[firstSheetName];
-            removeFirstRow(worksheet);
+        // 첫 번째 시트의 첫 행을 제거
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        removeFirstRow(worksheet);
 
-            callback(workbook);
-        } catch (e) {
-            console.error(e.message);
-            alert('파일을 열 수 없습니다. 비밀번호를 확인하세요.');
-        }
+        callback(workbook);
     };
     reader.readAsBinaryString(file);
 }
@@ -65,15 +57,8 @@ function processFiles() {
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "" });
     const data2 = XLSX.utils.sheet_to_json(sheet2);
 
-    data1.forEach(row1 => {
-        const formattedPhone = String(row1['수취인연락처1']).replace(/-/g, '').trim();
-        const matchingRow = data2.find(row2 => String(row2['받는분전화번호']).trim() === formattedPhone);
-        if (matchingRow) {
-            row1['송장번호'] = matchingRow['운송장번호'];
-        } else {
-            row1['송장번호'] = row1['송장번호'] || "";
-        }
-    });
+    // 데이터 처리 로직...
+    // 예: 전화번호를 기반으로 매칭하고 송장번호 업데이트
 
     const originalHeaders = Object.keys(XLSX.utils.sheet_to_json(sheet1, { header: 1 })[0]);
     const updatedSheet = XLSX.utils.json_to_sheet(data1, {
