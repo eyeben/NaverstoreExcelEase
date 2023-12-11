@@ -37,7 +37,7 @@ function processFiles() {
 
     // 첫 행을 제외하고 데이터를 읽음
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "", range: 1 });
-    const data2 = XLSX.utils.sheet_to_json(sheet2, { defval: "", range: 1 });
+    const data2 = XLSX.utils.sheet_to_json(sheet2, { defval: ""});
 
     data1.forEach(row1 => {
         const formattedPhone = String(row1['수취인연락처1']).replace(/-/g, '').trim();
