@@ -11,9 +11,17 @@
 </head>
 <body>
     <h1>NaverstoreExcelEase</h1>
-    <input type="file" id="excel1Input" accept=".xlsx, .xls" />
-    <input type="file" id="excel2Input" accept=".xlsx, .xls" />
-    <button id="processButton" style="display: none;">Process and Download</button>
+    <div class="file-input">
+        <label for="excel1Input">네이버 파일 업로드:</label>
+        <input type="file" id="excel1Input" accept=".xlsx, .xls" />
+    </div>
+    <div class="file-input">
+        <label for="excel2Input">CJ 파일 업로드:</label>
+        <input type="file" id="excel2Input" accept=".xlsx, .xls" />
+    </div>
+    <div class="button-container">
+        <button id="processButton" style="display: none;">Process and Download</button>
+    </div>
     
     <script src="script.js"></script>
 </body>

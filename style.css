@@ -8,11 +8,11 @@ h1 {
     color: #333;
 }
 
-#fileInput {
+.file-input {
     margin: 20px 0;
 }
 
-#downloadButton {
+#processButton {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -21,6 +21,10 @@ h1 {
     cursor: pointer;
 }
 
-#downloadButton:hover {
+#processButton:hover {
     background-color: #45a049;
+}
+
+.file-input label {
+    margin-right: 10px;
 }
