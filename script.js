@@ -41,14 +41,19 @@ function processFiles() {
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "" });
     const data2 = XLSX.utils.sheet_to_json(sheet2);
 
+    const minProductOrderNumbers = data1.reduce((acc, row) => {
+        if (!acc[row['주문번호']] || row['상품주문번호'] < acc[row['주문번호']]) {
+            acc[row['주문번호']] = row['상품주문번호'];
+        }
+        return acc;
+    }, {});
+    
+    // data1의 각 행에 대해 매칭된 운송장번호 업데이트
     data1.forEach(row1 => {
-        const matchingRow = data2.find(row2 => String(row2['고객주문번호']).trim() === String(row1['주문번호']).trim());
-        console.log('Matching Row:', matchingRow); // 디버깅을 위한 로그
-        console.log('Data1 주문번호:', data1.map(row => row['주문번호']));
-        console.log('Data2 고객주문번호:', data2.map(row => row['고객주문번호']));
-
+        const minProductOrderNumber = minProductOrderNumbers[row1['주문번호']];
+        const matchingRow = data2.find(row2 => String(row2['고객주문번호']).trim() === String(minProductOrderNumber).trim());
         if (matchingRow) {
-            row1['송장번호'] = matchingRow['송장번호'];
+            row1['송장번호'] = matchingRow['운송장번호'];
         } else {
             row1['송장번호'] = row1['송장번호'] || "";
         }
