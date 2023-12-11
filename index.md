@@ -14,10 +14,10 @@ title: NaverstoreExcelEase 홈페이지
 
 ## 내가 만든 앱으로 이동하기
 
-[내가 만든 앱으로 이동하기](/app/)
+[내가 만든 앱으로 이동하기](/NaverstoreExcelEase/app/)
 
 ## 추가 정보
 
-- [About](/about/)
-- [Contact](/contact/)
-- [Community](/community/)
+- [About](/NaverstoreExcelEase/about/)
+- [Contact](/NaverstoreExcelEase/contact/)
+- [Community](/NaverstoreExcelEase/community/)
