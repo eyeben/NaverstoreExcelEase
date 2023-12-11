@@ -35,6 +35,7 @@ function processFiles() {
     const sheet1 = excel1.Sheets[excel1.SheetNames[0]];
     const sheet2 = excel2.Sheets[excel2.SheetNames[0]];
 
+    // 첫 행을 제외하고 데이터를 읽음
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "", range: 1 });
     const data2 = XLSX.utils.sheet_to_json(sheet2, { defval: "", range: 1 });
 
@@ -43,7 +44,9 @@ function processFiles() {
         const matchingRow = data2.find(row2 => String(row2['받는분전화번호']).trim() === formattedPhone);
         if (matchingRow) {
             row1['송장번호'] = matchingRow['운송장번호'];
+            console.log(`매칭 성공: ${formattedPhone}, 송장번호: ${matchingRow['운송장번호']}`);
         } else {
+            console.log(`매칭 실패: ${formattedPhone}`);
             row1['송장번호'] = row1['송장번호'] || "";
         }
     });
