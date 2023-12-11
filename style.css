@@ -31,6 +31,7 @@ h1 {
 
 
 .button-container {
+    display: flex;
     text-align: center;
     margin: 20px 0;
 }
