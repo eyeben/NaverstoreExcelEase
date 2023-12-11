@@ -33,6 +33,7 @@ function readFile(file, callback) {
 
             callback(workbook);
         } catch (e) {
+            console.error(e.message);
             alert('파일을 열 수 없습니다. 비밀번호를 확인하세요.');
         }
     };
