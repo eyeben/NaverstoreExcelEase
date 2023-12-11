@@ -43,13 +43,14 @@ function processFiles() {
 
     data1.forEach(row1 => {
         const matchingRow = data2.find(row2 => row2['고객주문번호'] === row1['주문번호']);
+        console.log('Matching Row:', matchingRow); // 디버깅을 위한 로그
         if (matchingRow) {
             row1['송장번호'] = matchingRow['송장번호'];
-        }
-        else{
+        } else {
             row1['송장번호'] = row1['송장번호'] || "";
         }
     });
+    
 
     const originalHeaders = Object.keys(XLSX.utils.sheet_to_json(sheet1, { header: 1 })[0]);
     const updatedSheet = XLSX.utils.json_to_sheet(data1, {
