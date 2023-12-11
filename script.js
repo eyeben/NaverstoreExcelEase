@@ -1,18 +1,22 @@
 let excel1, excel2;
 
-document.getElementById('excel1Input').addEventListener('change', function(evt) {
-    readFile(evt.target.files[0], function(workbook) {
-        excel1 = workbook;
-    });
-}, false);
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('excel1Input').addEventListener('change', function(evt) {
+        readFile(evt.target.files[0], function(workbook) {
+            excel1 = workbook;
+            updateProcessButtonVisibility();
+        });
+    }, false);
 
-document.getElementById('excel2Input').addEventListener('change', function(evt) {
-    readFile(evt.target.files[0], function(workbook) {
-        excel2 = workbook;
-    });
-}, false);
+    document.getElementById('excel2Input').addEventListener('change', function(evt) {
+        readFile(evt.target.files[0], function(workbook) {
+            excel2 = workbook;
+            updateProcessButtonVisibility();
+        });
+    }, false);
 
-document.getElementById('processButton').addEventListener('click', processFiles);
+    document.getElementById('processButton').addEventListener('click', processFiles);
+});
 
 function readFile(file, callback) {
     const reader = new FileReader();
@@ -22,6 +26,7 @@ function readFile(file, callback) {
         callback(workbook);
     };
     reader.readAsBinaryString(file);
+
 }
 
 function processFiles() {
@@ -43,10 +48,9 @@ function processFiles() {
         }
     });
 
+
     const updatedSheet = XLSX.utils.json_to_sheet(data1);
     excel1.Sheets[excel1.SheetNames[0]] = updatedSheet;
-
-
 
     XLSX.writeFile(excel1, 'updated_excel1.xlsx');
 
