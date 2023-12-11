@@ -46,7 +46,9 @@ function processFiles() {
             row1['송장번호'] = matchingRow['운송장번호'];
             console.log(`매칭 성공: ${formattedPhone}, 송장번호: ${matchingRow['운송장번호']}`);
         } else {
-            console.log(`매칭 실패: ${formattedPhone}`);
+            console.log(`매칭 실패: ${formattedPhone} `);
+            console.log(data1)
+            console.log(data2)
             row1['송장번호'] = row1['송장번호'] || "";
         }
     });
