@@ -54,5 +54,12 @@ function processFiles() {
 
     XLSX.writeFile(excel1, 'updated_excel1.xlsx');
 
-    document.getElementById('processButton').style.display = 'block'
+}
+
+function updateProcessButtonVisibility() {
+    if (excel1 && excel2) {
+        document.getElementById('processButton').style.display = 'block';
+    } else {
+        document.getElementById('processButton').style.display = 'none';
+    }
 }
