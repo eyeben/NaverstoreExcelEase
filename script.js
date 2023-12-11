@@ -1,40 +1,35 @@
-document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+let excel1, excel2;
 
-document.getElementById('downloadButton').addEventListener('click', function() {
-    XLSX.writeFile(workbook, 'modified_file.xlsx');
-});
+document.getElementById('excel1Input').addEventListener('change', function(evt) {
+    readFile(evt.target.files[0], function(workbook) {
+        excel1 = workbook;
+    });
+}, false);
 
-let workbook;
+document.getElementById('excel2Input').addEventListener('change', function(evt) {
+    readFile(evt.target.files[0], function(workbook) {
+        excel2 = workbook;
+    });
+}, false);
 
-function handleFileSelect(evt) {
-    const file = evt.target.files[0];
+document.getElementById('processButton').addEventListener('click', processFiles);
+
+function readFile(file, callback) {
     const reader = new FileReader();
-
     reader.onload = function(event) {
         const data = event.target.result;
-        workbook = XLSX.read(data, {
-            type: 'binary'
-        });
-
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
-
-        swapRows(worksheet);
-
-        document.getElementById('downloadButton').style.display = 'block';
+        const workbook = XLSX.read(data, { type: 'binary' });
+        callback(workbook);
     };
-
     reader.readAsBinaryString(file);
 }
 
-function swapRows(worksheet) {
-    const range = XLSX.utils.decode_range(worksheet['!ref']);
-    for(let C = range.s.c; C <= range.e.c; ++C) {
-        const firstCell = XLSX.utils.encode_cell({c:C, r:0});
-        const secondCell = XLSX.utils.encode_cell({c:C, r:1});
-
-        let temp = worksheet[firstCell];
-        worksheet[firstCell] = worksheet[secondCell];
-        worksheet[secondCell] = temp;
+function processFiles() {
+    if (!excel1 || !excel2) {
+        alert('두 개의 파일을 모두 업로드해주세요.');
+        return;
     }
+
+
+    XLSX.writeFile(excel1, 'updated_excel1.xlsx');
 }
