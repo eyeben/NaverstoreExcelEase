@@ -38,7 +38,7 @@ function processFiles() {
     const sheet1 = excel1.Sheets[excel1.SheetNames[0]];
     const sheet2 = excel2.Sheets[excel2.SheetNames[0]];
 
-    const data1 = XLSX.utils.sheet_to_json(sheet1);
+    const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "" });
     const data2 = XLSX.utils.sheet_to_json(sheet2);
 
     data1.forEach(row1 => {
@@ -46,11 +46,16 @@ function processFiles() {
         if (matchingRow) {
             row1['송장번호'] = matchingRow['송장번호'];
         }
+        else{
+            row1['송장번호'] = row1['송장번호'] || "";
+        }
     });
 
-
-    const updatedSheet = XLSX.utils.json_to_sheet(data1);
-    excel1.Sheets[excel1.SheetNames[0]] = updatedSheet;
+    const originalHeaders = Object.keys(XLSX.utils.sheet_to_json(sheet1, { header: 1 })[0]);
+    const updatedSheet = XLSX.utils.json_to_sheet(data1, {
+        header: originalHeaders,
+        skipHeader: true
+    });
 
     XLSX.writeFile(excel1, 'updated_excel1.xlsx');
 
