@@ -44,6 +44,8 @@ function processFiles() {
     data1.forEach(row1 => {
         const matchingRow = data2.find(row2 => String(row2['고객주문번호']) === String(row1['주문번호']));
         console.log('Matching Row:', matchingRow); // 디버깅을 위한 로그
+        console.log('Data1:', data1);
+        console.log('Data2:', data2);
         if (matchingRow) {
             row1['송장번호'] = matchingRow['송장번호'];
         } else {
