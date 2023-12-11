@@ -41,12 +41,6 @@ function processFiles() {
     const data1 = XLSX.utils.sheet_to_json(sheet1, { defval: "" });
     const data2 = XLSX.utils.sheet_to_json(sheet2);
 
-    const minProductOrderNumbers = data1.reduce((acc, row) => {
-        if (!acc[row['주문번호']] || row['상품주문번호'] < acc[row['주문번호']]) {
-            acc[row['주문번호']] = row['상품주문번호'];
-        }
-        return acc;
-    }, {});
     
     // data1의 각 행에 대해 매칭된 운송장번호 업데이트
     data1.forEach(row1 => {
