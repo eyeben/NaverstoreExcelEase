@@ -23,7 +23,7 @@ function readFile(file, callback) {
         try {
             const workbook = XLSX.read(data, { 
                 type: 'binary',
-                password: '0000' // 비밀번호 입력
+                password: 'aaaa' // 비밀번호 입력
             });
 
             // 첫 번째 시트의 첫 행을 제거
