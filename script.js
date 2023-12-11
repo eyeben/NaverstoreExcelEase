@@ -53,13 +53,16 @@ function processFiles() {
         }
     });
 
-    const originalHeaders = Object.keys(XLSX.utils.sheet_to_json(sheet1, { header: 1, range: 1 })[0]);
-    const updatedSheet = XLSX.utils.json_to_sheet(data1, {
-        header: originalHeaders,
-        skipHeader: true
-    });
 
-    XLSX.writeFile(excel1, 'updated_excel1.xlsx');
+    // 새로운 시트 생성 시 첫 행을 포함하지 않음
+    const updatedSheet = XLSX.utils.json_to_sheet(data1);
+
+    // 새 워크북 생성 및 시트 추가
+    const newWorkbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(newWorkbook, updatedSheet, "Updated Data");
+
+    // 새 워크북 저장
+    XLSX.writeFile(newWorkbook, 'updated_excel1.xlsx');
 }
 
 function updateProcessButtonVisibility() {
