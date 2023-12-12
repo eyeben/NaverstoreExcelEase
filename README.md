@@ -20,12 +20,11 @@ NaverstoreExcelEase is a user-friendly tool designed to automate the creation of
 
 Follow these simple steps to start using NaverstoreExcelEase:
 
-1. [Download](http:www.naver.com) and install the application on your system.
+1. [Run It Online](https://eyeben.github.io/NaverstoreExcelEase/app/) and install the application on your system.
 2. Upload the two Excel files.
-3. Click "Merge" to create the integrated Excel file.
-4. Download the merged file to your device.
+3. Click on "Process and Downlad" to download the integrated Excel file.
 
-## Download
+## Download (not available)
 
 Get the latest version of NaverstoreExcelEase [here](http:www.naver.com).
 

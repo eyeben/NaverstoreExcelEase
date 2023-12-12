@@ -1,11 +1,12 @@
 ---
-layout: home
+layout: default
 title: NaverstoreExcelEase 홈페이지
 ---
 
-# NaverstoreExcelEase 홈페이지에 오신 것을 환영합니다!
+# Welcome to NaverstoreExcelEase 
 
-이곳은 NaverstoreExcelEase 프로젝트의 메인 페이지입니다.
+/n
+/n
 
 ## 기능
 
@@ -16,10 +17,6 @@ title: NaverstoreExcelEase 홈페이지
 
 
 [내가 만든 앱으로 이동하기](/NaverstoreExcelEase/app/)
-
-
-
-
 
 
 ## 추가 정보
