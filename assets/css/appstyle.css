@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     padding: 20px;
 }
 
@@ -31,7 +30,6 @@ h1 {
 
 
 .button-container {
-    text-align: center;
     display: block;
     margin: 20px 0;
 }
