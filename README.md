@@ -2,31 +2,28 @@
 
 ## Introduction
 
-NaverstoreExcelEase is a user-friendly tool designed to automate the creation of integrated Excel files by accepting uploads of two Excel files provided by the courier and Naverstore.
+NaverstoreExcelEase is a user-friendly tool designed to automate the creation of integrated Excel files. It does this by accepting uploads of two Excel files, one from the courier and the other from Naverstore.
 
 ## Key Features
 
-- **File Upload:** recieves two Excel files. Names won't matter as long as they are given into right slot.
-- **Integrate:** Integrates into adequate form
-- **Download:** Generates a new Excel file in a format for download.
+- **File Upload:** Receives two Excel files. The names of the files are not important as long as they are uploaded to the correct slots.
+- **Integration:** Integrates data into an appropriate format.
+- **Download:** Generates a new Excel file in a downloadable format.
 
 ## Benefits
 
-- **Ease of Use:** No need to learn complex tools; the tool automatically converts uploaded Excel files into the required format.
-- **Data Security:** Your sales information stays private; no need to share it with external companies.
+- **Ease of Use:** There's no need to learn complex tools; the tool automatically converts uploaded Excel files into the required format.
+- **Data Security:** Your sales information remains private; there's no need to share it with external companies.
 - **Reduced Dependence:** Process tasks independently without relying on external services or platforms, reducing concerns about service disruptions or policy changes.
 
 ## Getting Started
 
 Follow these simple steps to start using NaverstoreExcelEase:
 
-1. [Run It Online](https://eyeben.github.io/NaverstoreExcelEase/app/) and install the application on your system.
-2. Upload the two Excel files.
-3. Click on "Process and Downlad" to download the integrated Excel file.
-
-## Download (not available)
-
-Get the latest version of NaverstoreExcelEase [here](http:www.naver.com).
+[Run It Online](https://eyeben.github.io/NaverstoreExcelEase/app/)
+1. Prepare two files: one from SmartStore, the other from CJ Logistics.
+2. Upload the two Excel files. Ensure that all files are not password protected.
+3. Click on "Process and Download" to obtain the integrated Excel file.
 
 ## Documentation
 

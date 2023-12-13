@@ -42,23 +42,20 @@ function processFiles() {
         const formattedPhone = String(row1['수취인연락처1']).replace(/-/g, '').trim();
         const matchingRow = data2.find(row2 => String(row2['받는분전화번호']).trim() === formattedPhone);
 
-        // 필요한 컬럼만 선택하여 새 객체 생성
+
         return {
             '상품주문번호': row1['상품주문번호'],
             '배송방법': row1['배송방법'],
-            '택배사': row1['택배사'] || 'CJ대한통운', // '택배사'가 없는 경우 기본값 사용
+            '택배사': row1['택배사'] || 'CJ대한통운',
             '송장번호': matchingRow ? matchingRow['운송장번호'] : (row1['송장번호'] || "")
         };
     });
 
-    // 새로운 시트 생성
     const updatedSheet = XLSX.utils.json_to_sheet(updatedData);
 
-    // 새 워크북 생성 및 시트 추가
     const newWorkbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbook, updatedSheet, "Updated Data");
 
-    // 새 워크북 저장
     XLSX.writeFile(newWorkbook, 'updated_excel1.xlsx');
 }
 
